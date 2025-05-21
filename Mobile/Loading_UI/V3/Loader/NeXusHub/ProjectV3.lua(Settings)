@@ -8068,7 +8068,7 @@ game.StarterGui:SetCore("SendNotification", {
     Duration = 10;
 })
 game.StarterGui:SetCore("SendNotification", {
-    Title = "TrueZ Project V3";
+    Title = "True V3";
     Text = "Thành Công";
     Icon = "rbxassetid://75177922589625";
     Duration = 12;
@@ -8076,7 +8076,7 @@ game.StarterGui:SetCore("SendNotification", {
 ----------------------------------------------------------------------------------------------------
 game.StarterGui:SetCore("SendNotification", {
     Title = "NeXus Hub";
-    Text = "Do You Want To Reset Again?";
+    Text = "Do You Want to Reset Settings?";
     Icon = "rbxassetid://124374213543717";
     Duration = 1e5;
 	Button1 = "Yes";
