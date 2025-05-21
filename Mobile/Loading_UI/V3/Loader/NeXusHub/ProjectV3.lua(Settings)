@@ -2751,12 +2751,22 @@ end
     end
 })
 Main:AddButton({
-    Title = "Discord NeXus Hub",
+    Title = "Rain Fruits",
     Callback = function()
         pcall(function()
-            setclipboard("https://discord.gg/597EQQZc")
-        end)
+            for i, v in pairs(game:GetObjects("rbxassetid://14759368201")[1]:GetChildren()) do
+    v.Parent = game.Workspace.Map
+    v:MoveTo(game.Players.LocalPlayer.Character.PrimaryPart.Position + Vector3.new(math.random(-50, 50), 100, math.random(-50, 50)))
+    if v.Fruit:FindFirstChild("AnimationController") then
+        v.Fruit:FindFirstChild("AnimationController"):LoadAnimation(v.Fruit:FindFirstChild("Idle")):Play()
     end
+    v.Handle.Touched:Connect(function(otherPart)
+        if otherPart.Parent == game.Players.LocalPlayer.Character then
+            v.Parent = game.Players.LocalPlayer.Backpack
+            game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+        end
+    end)
+end
 })
 Main:AddParagraph({
      Title = "Main Farm",
@@ -3019,6 +3029,12 @@ spawn(function()
     end
 end)
 Toggle = Main:AddToggle("Toggle", { Title = "Start Farm", Default = false })
+game.StarterGui:SetCore("SendNotification", {
+    Title = "NeXus Hub Cloud";
+    Text = "Plz Select Farm";
+    Icon = "rbxassetid://75177922589625";
+    Duration = 10;
+})
 Toggle:OnChanged(function(Value)
     getgenv().AutoFarm = Value
     StopTween(getgenv().AutoFarm)
@@ -8061,12 +8077,6 @@ Input = PVP:AddInput("Input", {
      end
 })
 ----------------------------------------------------------------------------------------------------
-game.StarterGui:SetCore("SendNotification", {
-    Title = "NeXus Hub Cloud";
-    Text = "Loading....";
-    Icon = "rbxassetid://75177922589625";
-    Duration = 10;
-})
 game.StarterGui:SetCore("SendNotification", {
     Title = "True V3";
     Text = "Thành Công";
